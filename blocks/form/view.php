@@ -110,20 +110,24 @@ if ($isAjax):
 
 		<?php foreach ($questions as $question): ?>
 			<div class="field field-<?php echo $question['type']; ?>">
+				<div class="formLabel">
 				<label <?php echo $question['labelFor']; ?> class="<?php echo $question['labelClasses']; ?>">
 					<?php echo $question['question']; ?>
 					<?php if ($question['required']): ?>
 						<span class="required">*</span>
 					<?php endif; ?>
 				</label>
-
+				</div>
+				<div class="formInput">
 				<?php echo $question['input']; ?>
+				</div>
 			</div>
 		<?php endforeach; ?>
 
 		<?php if ($captcha): ?>
 			<div class="field field-captcha">
-				<label>Please type the letters and numbers shown in the image.</label>
+				<p>Please type the letters and numbers shown in the image.</p>
+				<br />
 				<?php $captcha->display(); ?>
 				<?php $captcha->showInput(); ?>
 			</div>
@@ -132,7 +136,7 @@ if ($isAjax):
 	</div><!-- .fields -->
 
 	<input type="submit" name="Submit" class="submit" value="Submit" />
-
+	<br /><br />
 	<div class="indicator" style="display: none;">
 		<img src="<?php echo ASSETS_URL_IMAGES; ?>/throbber_white_16.gif" width="16" height="16" alt="" />
 		<span>Processing...</span>
